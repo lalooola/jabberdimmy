@@ -1,26 +1,21 @@
 /**
- * List the video clips jabberdimmy can play here.
+ * List the video clips jabberdimmy plays here.
  *
- * Each entry is a URL to an .mp4 (or .webm) file. They are played in a
- * random order, each clip loops nothing — when one ends, the next random
- * clip crossfades in. Once every clip has played, the order is reshuffled.
+ * They are played in a random order. When one clip ends, the next random
+ * clip crossfades in; once every clip has played, the order is reshuffled.
  *
- * To use your own clips, drop them in a `videos/` folder next to this file
- * and reference them like "videos/my-clip.mp4". Keep them short, muted and
- * web-optimized (H.264 .mp4) for smooth looping.
- *
- * The defaults below are Google's public sample clips so the site works out
- * of the box.
+ * To add another video, just add another line to the array below — a CDN
+ * URL, or a local path like "videos/my-clip.mp4". No other changes needed.
+ * Keep clips short, muted and web-optimized (H.264 .mp4) for smooth looping.
  */
 window.JABBERDIMMY_VIDEOS = [
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-  "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+  // Take 4 — cow conductor on the hexagon-wheel handcar (15s)
+  "https://d8j0ntlcm91z4.cloudfront.net/user_3ETcjbkhhWp5HiWTWoLl8hbHDGa/hf_20260622_112008_e17d24ca-f95e-4c0f-b308-a09d74666189.mp4",
+  // Take 5 — alien eye in the crate, pogo-legged contraption (10s)
+  "https://d8j0ntlcm91z4.cloudfront.net/user_3ETcjbkhhWp5HiWTWoLl8hbHDGa/hf_20260622_115158_8b747a81-629b-4fbb-9f9a-96672e27e1ca.mp4",
+  // Take 6 — same scene as take 5, different seed (10s)
+  "https://d8j0ntlcm91z4.cloudfront.net/user_3ETcjbkhhWp5HiWTWoLl8hbHDGa/hf_20260622_115702_a5658f15-c556-4d99-83c7-50701f1ec55b.mp4",
+
+  // Add more clips here:
+  // "videos/another-clip.mp4",
 ];
