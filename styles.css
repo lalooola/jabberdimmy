@@ -83,16 +83,19 @@ body {
   animation: rise 1s ease-out 0.15s both;
 }
 
-/* "Dimmy" link in the tagline: bold, inherits text colour, orange on hover. */
-.tagline a {
+/* "Dimmy" link in the tagline: bold and white in every state, orange on hover. */
+.tagline a,
+.tagline a:link,
+.tagline a:visited,
+.tagline a:active,
+.tagline a:focus {
   font-weight: 700;
-  color: inherit;
+  color: #fff;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.tagline a:hover,
-.tagline a:focus {
+.tagline a:hover {
   color: orange;
 }
 
