@@ -1,0 +1,131 @@
+:root {
+  --fade: 1.2s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* --- Video background --- */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--fade) ease-in-out;
+}
+
+.bg__video.is-active {
+  opacity: 1;
+}
+
+/* Darkening layer so foreground text stays readable. */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  pointer-events: none;
+}
+
+/* --- Foreground content --- */
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.5rem, 12vw, 9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  animation: rise 1s ease-out both;
+}
+
+.tagline {
+  margin: 0.75rem 0 0;
+  font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  animation: rise 1s ease-out 0.15s both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Mute toggle --- */
+.mute-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.mute-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.mute-toggle:active {
+  transform: scale(0.92);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg__video {
+    transition: none;
+  }
+  .title,
+  .tagline {
+    animation: none;
+  }
+}
