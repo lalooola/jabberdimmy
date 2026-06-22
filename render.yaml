@@ -1,0 +1,17 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Deploys jabberdimmy as a free static site (no build step; files served from repo root).
+services:
+  - type: web
+    name: jabberdimmy
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    # Send unknown paths back to the single page.
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600

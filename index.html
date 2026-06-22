@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jabberdimmy</title>
+    <meta
+      name="description"
+      content="jabberdimmy — random looping video backgrounds, played in random order."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Two stacked <video> elements let us crossfade between clips. -->
+    <div class="bg">
+      <video class="bg__video is-active" autoplay muted playsinline></video>
+      <video class="bg__video" autoplay muted playsinline></video>
+    </div>
+
+    <div class="overlay"></div>
+
+    <main class="content">
+      <h1 class="title">jabberdimmy</h1>
+      <p class="tagline">random video backgrounds, on shuffle</p>
+    </main>
+
+    <button class="mute-toggle" type="button" aria-label="Toggle sound">
+      <span class="mute-toggle__icon" aria-hidden="true">🔇</span>
+    </button>
+
+    <noscript>
+      <p style="color: #fff; text-align: center; padding: 2rem;">
+        jabberdimmy needs JavaScript enabled to shuffle the video backgrounds.
+      </p>
+    </noscript>
+
+    <script src="videos.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
